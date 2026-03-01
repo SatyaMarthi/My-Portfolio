@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Satya Marthi — PhD Researcher</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #0d1b2e;
+      --ink-soft: #3d5068;
+      --ink-faint: #7b92a8;
+      --paper: #f0f4f8;
+      --paper-warm: #dde6f0;
+      --paper-card: #ffffff;
+      --accent: #1a4b8c;
+      --accent-mid: #2563b0;
+      --accent-light: #bdd3ee;
+      --line: #c8d8e8;
+      --serif: 'Playfair Display', serif;
+      --sans: 'Source Sans 3', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      background: rgba(240, 244, 248, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+    .hamburger span { width: 24px; height: 1.5px; background: var(--ink); }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 80px;
+      border-top: none;
+    }
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 4rem 6rem 10vw;
+    }
+    .hero-tag {
+      font-size: 0.79rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+    }
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(3.2rem, 6vw, 5.5rem);
+      font-weight: 400;
+      line-height: 1.05;
+      margin-bottom: 0.3rem;
+    }
+    .hero-name em {
+      font-style: italic;
+      color: var(--accent-mid);
+    }
+    .hero-title {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--ink-soft);
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+    .hero-desc {
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+      max-width: 440px;
+      line-height: 1.85;
+      margin-bottom: 2.5rem;
+    }
+    .hero-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+    }
+    .contact-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.85rem;
+      color: var(--ink-soft);
+      text-decoration: none;
+      padding: 0.45rem 1rem;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      background: var(--paper-card);
+      transition: all 0.2s;
+    }
+    .contact-chip:hover { border-color: var(--accent); color: var(--accent); }
+    .contact-chip svg { width: 14px; height: 14px; flex-shrink: 0; }
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 0.85rem 1.8rem;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-download:hover { background: var(--accent-mid); transform: translateY(-1px); }
+    .btn-download svg { width: 15px; height: 15px; }
+    .hero-visual {
+      background: linear-gradient(160deg, #dde6f0 0%, #bdd3ee 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-circle {
+      width: 340px; height: 340px;
+      border-radius: 50%;
+      border: 4px solid rgba(26, 75, 140, 0.25);
+      overflow: hidden;
+      box-shadow: 0 16px 60px rgba(26, 75, 140, 0.2);
+    }
+    .hero-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 6rem 10vw;
+      border-top: 1px solid var(--line);
+    }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    .section-num {
+      font-size: 1.4rem;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      font-weight: 600;
+      font-family: var(--serif);
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
+    /* ABOUT */
+    #about .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .about-body p {
+      font-size: 1rem;
+      color: var(--ink-soft);
+      line-height: 1.85;
+      margin-bottom: 1.2rem;
+    }
+    .about-aside {
+      border-left: 3px solid var(--accent-light);
+      padding-left: 2rem;
+    }
+    .aside-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .skill-tag {
+      font-size: 0.90rem;
+      padding: 0.35rem 0.85rem;
+      background: var(--paper-warm);
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      color: var(--ink-soft);
+    }
+
+    /* EDUCATION */
+    .edu-list { display: flex; flex-direction: column; gap: 2.5rem; }
+    .edu-item {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 2rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .edu-item:last-child { border-bottom: none; }
+    .edu-year { font-size: 0.85rem; color: var(--accent); font-weight: 600; letter-spacing: 0.06em; padding-top: 0.2rem; }
+    .edu-degree { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; margin-bottom: 0.3rem; line-height: 1.25; }
+    .edu-inst { font-size: 0.95rem; color: var(--ink-soft); font-style: italic; margin-bottom: 0.6rem; }
+    .edu-detail { font-size: 0.93rem; color: var(--ink-soft); line-height: 1.7; }
+    .edu-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 0.2rem 0.6rem;
+      border-radius: 3px;
+      margin-top: 0.5rem;
+      font-weight: 600;
+    }
+
+    /* EXPERIENCE */
+    .exp-list { display: flex; flex-direction: column; gap: 2.5rem; }
+    .exp-item {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 2rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-year { font-size: 0.85rem; color: var(--accent); font-weight: 600; letter-spacing: 0.06em; padding-top: 0.25rem; }
+    .exp-role { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .exp-org { font-size: 0.95rem; color: var(--ink-soft); font-style: italic; margin-bottom: 0.6rem; }
+    .exp-desc { font-size: 0.95rem; color: var(--ink-soft); line-height: 1.75; }
+
+    /* PUBLICATIONS */
+    .pub-list { display: flex; flex-direction: column; gap: 2rem; }
+    .pub-item {
+      display: flex;
+      gap: 2rem;
+      padding: 1.5rem;
+      background: var(--paper-card);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 4px 4px 0;
+      transition: box-shadow 0.2s;
+    }
+    .pub-item:hover { box-shadow: 0 4px 24px rgba(26,75,140,0.1); }
+    .pub-year-badge {
+      font-size: 0.79rem;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 0.25rem 0.7rem;
+      border-radius: 3px;
+      height: fit-content;
+      white-space: nowrap;
+      margin-top: 0.2rem;
+    }
+    .pub-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; line-height: 1.4; margin-bottom: 0.5rem; }
+    .pub-venue { font-size: 0.90rem; color: var(--ink-soft); font-style: italic; }
+
+    /* TALKS */
+    .talks-list { display: flex; flex-direction: column; gap: 0; }
+    .talk-item {
+      padding: 1.4rem 1.6rem;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 2rem;
+      transition: background 0.2s;
+    }
+    .talk-item:first-child { border-top: 1px solid var(--line); }
+    .talk-item:hover { background: var(--paper-card); }
+    .talk-title {
+      font-size: 0.99rem;
+      color: var(--ink-soft);
+      line-height: 1.5;
+      flex: 1;
+    }
+    .talk-link {
+      font-size: 0.99rem;
+      color: var(--accent-mid);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      line-height: 1.5;
+      flex: 1;
+    }
+    .talk-link:hover { color: var(--accent); }
+    .talk-venue {
+      font-size: 0.91rem;
+      color: var(--ink);
+      white-space: nowrap;
+      font-style: italic;
+    }
+    .talk-venue strong { font-style: italic; font-weight: 600; }
+
+    /* TEACHING */
+    .teaching-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+    .teaching-card {
+      padding: 1.8rem;
+      background: var(--paper-card);
+      border: 1px solid var(--line);
+      border-top: 3px solid var(--accent);
+      border-radius: 0 0 4px 4px;
+      transition: all 0.2s;
+    }
+    .teaching-card:hover { box-shadow: 0 6px 24px rgba(26,75,140,0.1); transform: translateY(-2px); }
+    .teaching-course { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .teaching-meta { font-size: 0.85rem; color: var(--ink-faint); letter-spacing: 0.06em; }
+
+    /* LANGUAGES */
+    .lang-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+    }
+    .lang-card {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      background: var(--paper-card);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+    .lang-card:hover { border-color: var(--accent-light); box-shadow: 0 4px 16px rgba(26,75,140,0.08); }
+    .lang-name { font-family: var(--serif); font-size: 1.15rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .lang-level { font-size: 0.79rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
+    .lang-badge {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+      padding: 0.15rem 0.55rem;
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 3px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+    }
+
+    /* REFEREES */
+    .referee-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .referee-card {
+      padding: 2rem;
+      background: var(--paper-card);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+    .referee-card:hover { border-color: var(--accent-light); box-shadow: 0 4px 20px rgba(26,75,140,0.08); }
+    .referee-name { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; margin-bottom: 0.2rem; }
+    .referee-role { font-size: 0.91rem; color: var(--ink-soft); font-style: italic; margin-bottom: 0.25rem; }
+    .referee-inst { font-size: 0.91rem; color: var(--ink-soft); margin-bottom: 0.8rem; }
+    .referee-email { font-size: 0.91rem; color: var(--accent); text-decoration: none; }
+    .referee-email:hover { text-decoration: underline; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 2.5rem 10vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--ink);
+    }
+    .footer-name { font-family: var(--serif); font-size: 1rem; font-weight: 600; color: #fff; }
+    .footer-note { font-size: 0.90rem; color: var(--accent-light); }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 60px; left: 0; right: 0;
+        background: var(--paper);
+        padding: 1.5rem 2rem;
+        border-bottom: 1px solid var(--line);
+        gap: 1.2rem;
+      }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+      #hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-text { padding: 5rem 1.8rem 3rem; }
+      .hero-visual { min-height: 360px; }
+      #about .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .edu-item, .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .teaching-grid { grid-template-columns: 1fr 1fr; }
+      .lang-grid { grid-template-columns: repeat(3, 1fr); }
+      .referee-grid { grid-template-columns: 1fr; }
+      section { padding: 4rem 1.8rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+    @media (max-width: 560px) {
+      .teaching-grid { grid-template-columns: 1fr; }
+      .lang-grid { grid-template-columns: 1fr 1fr; }
+      .pub-item { flex-direction: column; gap: 0.8rem; }
+      .hero-circle { width: 260px; height: 260px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">Satya Marthi</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#talks">Talks</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" style="border-top:none;padding:0;">
+    <div class="hero-text">
+      <p class="hero-tag">PhD Candidate &middot; Control Systems &amp; AI</p>
+      <h1 class="hero-name">Satya<br><em>Marthi</em></h1>
+      <p class="hero-title">AI-Driven Control Systems Researcher</p>
+      <p class="hero-desc">Specializing in safe reinforcement learning, Hamilton&ndash;Jacobi reachability analysis, and prescribed-time stability of nonlinear systems &mdash; developing intelligent control algorithms for autonomous robotics and aerospace applications.</p>
+      <div class="hero-contacts">
+        <a href="/cdn-cgi/l/email-protection#abd8cadfd2ca85c6cad9dfc3c28d889d9f90dec5c2dd86c7c4d9d9cac2c5ce85cdd9" class="contact-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg>
+          satya.marthi&#64;univ-lorraine.fr
+        </a>
+        <a href="tel:+330622391035" class="contact-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          +33 06 22 39 10 35
+        </a>
+        <a href="https://github.com" target="_blank" rel="noopener" class="contact-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+          GitHub
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+      </div>
+      <a href="CV_Satya.pdf" download="CV_Satya_Marthi.pdf" class="btn-download">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download CV
+      </a>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-circle">
+        <img src="Picture_1.jpeg" alt="Satya Marthi" class="hero-photo" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">About</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-body">
+        <p>I am a PhD candidate at the Centre de Recherche en Automatique de Nancy (CRAN), Universit&eacute; de Lorraine, where my research sits at the intersection of control systems engineering and reinforcement learning.</p>
+        <p>My work focuses on developing safe, optimal control algorithms with Lyapunov-based guarantees for nonlinear autonomous systems &mdash; with applications in robotics and aerospace. I contribute to the ANR-funded SOS project, targeting intelligent drone fleets for forest fire-fighting missions.</p>
+        <p>Prior to my PhD, I studied at ISAE-SUPAERO in Toulouse and completed my undergraduate degree in Aerospace Engineering in India. I enjoy bridging rigorous mathematical control theory with practical learning-based methods.</p>
+      </div>
+      <div class="about-aside">
+        <p class="aside-label">Technical Skills</p>
+        <div class="skill-tags">
+          <span class="skill-tag">MATLAB</span>
+          <span class="skill-tag">Simulink</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">PyTorch</span>
+          <span class="skill-tag">ROS</span>
+          <span class="skill-tag">Safe RL</span>
+          <span class="skill-tag">Optimal Control</span>
+          <span class="skill-tag">Lyapunov Analysis</span>
+          <span class="skill-tag">Hamilton&ndash;Jacobi</span>
+          <span class="skill-tag">Actor&ndash;Critic</span>
+          <span class="skill-tag">Control Barrier Functions</span>
+          <span class="skill-tag">MPC</span>
+        </div>
+        <p class="aside-label">Location</p>
+        <p style="font-size:0.95rem;color:var(--ink-soft);">Vandoeuvre-l&egrave;s-Nancy, France</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Education</h2>
+    </div>
+    <div class="edu-list">
+      <div class="edu-item">
+        <div class="edu-year">2024 &mdash; Present</div>
+        <div>
+          <p class="edu-degree">PhD, Control Systems Engineering</p>
+          <p class="edu-inst">Universit&eacute; de Lorraine &middot; CRAN (Centre de Recherche en Automatique de Nancy), Nancy, France</p>
+          <p class="edu-detail">Combining control systems and reinforcement learning for optimal control via safe RL frameworks. Contributions to Hamilton&ndash;Jacobi reachability and prescribed-time stability analysis. Developing actor&ndash;critic and policy iteration algorithms for nonlinear autonomous systems.</p>
+          <p class="edu-detail" style="margin-top:0.5rem;">Funded by ANR (Agence Nationale de la Recherche) under the <em>SOS &mdash; Self-Organizing, Smart and Safe Heterogeneous Robots Fleet</em> project for forest fire-fighting missions.</p>
+          <span class="edu-tag">ANR Funded</span>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2022 &mdash; 2024</div>
+        <div>
+          <p class="edu-degree">MSc, Aerospace Engineering</p>
+          <p class="edu-inst">ISAE-SUPAERO (Institut Sup&eacute;rieur de l'A&eacute;ronautique et de l'Espace), Toulouse, France</p>
+          <p class="edu-detail">Major in Aerospace Systems and Controls. Coursework included System Identification &amp; Estimation, Multivariable Systems, Model Predictive Control, Optimal Control, Robust Control, Nonlinear Control, Orbital Mechanics, and Mission Analysis.</p>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2017 &mdash; 2021</div>
+        <div>
+          <p class="edu-degree">BTech, Aerospace Engineering</p>
+          <p class="edu-inst">Amrita Vishwa Vidyapeetham, Coimbatore, India</p>
+          <p class="edu-detail">Coursework in Aeroelasticity, Control Theory, Aircraft Structures, Aircraft Propulsion, and Aerodynamics.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Experience</h2>
+    </div>
+    <div class="exp-list">
+      <div class="exp-item">
+        <div class="exp-year">2024</div>
+        <div>
+          <p class="exp-role">Research Intern</p>
+          <p class="exp-org">CRAN &mdash; Centre de Recherche en Automatique de Nancy, France</p>
+          <p class="exp-desc">Developed and evaluated a control approach combining safe reinforcement learning, optimal control, and adaptive control. Implemented control-barrier functions within a policy learning loop to achieve online-optimal control while guaranteeing system safety.</p>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-year">2022 &mdash; 2023</div>
+        <div>
+          <p class="exp-role">Research Project &mdash; Tethered Aircraft Systems</p>
+          <p class="exp-org">ISAE-SUPAERO, Toulouse, France</p>
+          <p class="exp-desc">Modelled a pair of tethered aircraft to develop control laws. Constructed handling quality and stability models, evaluated the impact of design parameters on stability, and determined a control law model for safe cooperative flight.</p>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-year">2021 &mdash; 2022</div>
+        <div>
+          <p class="exp-role">Design &amp; Structures Intern</p>
+          <p class="exp-org">STAR (Space Technology and Aeronautical Rocketry), India</p>
+          <p class="exp-desc">Designed a static test pad using Fusion 360 with focus on ergonomics, aesthetics, and ease of assembly/disassembly. Performed static stress analysis to ensure structural safety.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Publications</h2>
+    </div>
+    <div class="pub-list">
+      <div class="pub-item">
+        <span class="pub-year-badge">2025</span>
+        <div>
+          <p class="pub-title">On-policy Safe Reinforcement Learning under Input Saturation and State Constraints for Nonlinear Discrete Time Systems</p>
+          <p class="pub-venue">Marthi S, Jha MS, Kanso S, Ponsart JC, Theilliol D. &middot; IEEE 64th Conference on Decision and Control (CDC 2025), pp. 4817&ndash;4824</p>
+        </div>
+      </div>
+      <div class="pub-item">
+        <span class="pub-year-badge">2026</span>
+        <div>
+          <p class="pub-title">Lipschitz-Aware Exploration for Safety in Reinforcement Learning</p>
+          <p class="pub-venue">Jha MS, Kyriakos G V., Marthi S, Theilliol D. &middot; IEEE American Control Conference (ACC 2026), pp. 4817&ndash;4824</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TALKS -->
+  <section id="talks">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Academic Talks</h2>
+    </div>
+    <div class="talks-list">
+      <div class="talk-item">
+        <div class="talk-title">On-policy Safe Reinforcement Learning under Input Saturation and State Constraints for Nonlinear Discrete Time Systems</div>
+        <div class="talk-venue"><strong>Rio de Janeiro, Brazil &mdash; Dec 2025</strong></div>
+      </div>
+      <div class="talk-item">
+        <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Ka3ReQgAAAAJ&citation_for_view=Ka3ReQgAAAAJ:d1gkVwhDpl0C" target="_blank" rel="noopener" class="talk-link">State of the art on fault tolerant control in Reinforcement Learning for ANR project SOS-ANR-23-IAS2-0003</a>
+        <div class="talk-venue"><strong>Mulhouse, France &mdash; May 2025</strong></div>
+      </div>
+      <div class="talk-item">
+        <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Ka3ReQgAAAAJ&citation_for_view=Ka3ReQgAAAAJ:u5HHmVD_uO8C" target="_blank" rel="noopener" class="talk-link">Safe Reinforcement Learning for Discrete-Time Control Affine Non-linear Systems under Input Saturation</a>
+        <div class="talk-venue"><strong>Mulhouse, France &mdash; May 2025</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEACHING -->
+  <section id="teaching">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2 class="section-title">Teaching</h2>
+    </div>
+    <div class="teaching-grid">
+      <div class="teaching-card">
+        <p class="teaching-course">Deep Learning</p>
+        <p class="teaching-meta">Polytech Nancy &middot; 2025&ndash;2026</p>
+      </div>
+      <div class="teaching-card">
+        <p class="teaching-course">Reinforcement Learning</p>
+        <p class="teaching-meta">Polytech Nancy &middot; 2025&ndash;2026</p>
+      </div>
+      <div class="teaching-card">
+        <p class="teaching-course">Automatic Control</p>
+        <p class="teaching-meta">Polytech Nancy &middot; 2025</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LANGUAGES -->
+  <section id="languages">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2 class="section-title">Languages</h2>
+    </div>
+    <div class="lang-grid">
+      <div class="lang-card">
+        <p class="lang-name">French</p>
+        <p class="lang-level">Intermediate</p>
+        <span class="lang-badge">B1</span>
+      </div>
+      <div class="lang-card">
+        <p class="lang-name">English</p>
+        <p class="lang-level">Fluent</p>
+        <span class="lang-badge">C1</span>
+      </div>
+      <div class="lang-card">
+        <p class="lang-name">Telugu</p>
+        <p class="lang-level">Native</p>
+        <span class="lang-badge">Native</span>
+      </div>
+      <div class="lang-card">
+        <p class="lang-name">Tamil</p>
+        <p class="lang-level">Fluent</p>
+        <span class="lang-badge">Fluent</span>
+      </div>
+      <div class="lang-card">
+        <p class="lang-name">Hindi</p>
+        <p class="lang-level">Fluent</p>
+        <span class="lang-badge">Fluent</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFEREES -->
+  <section id="contact">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2 class="section-title">Referees</h2>
+    </div>
+    <div class="referee-grid">
+      <div class="referee-card">
+        <p class="referee-name">Dr. Didier Theilliol</p>
+        <p class="referee-role">Professor</p>
+        <p class="referee-inst">Universit&eacute; de Lorraine</p>
+        <a href="/cdn-cgi/l/email-protection#d7b3beb3beb2a5f9a3bfb2bebbbbbeb8bbf1f4e1e3eca2b9bea1fabbb8a5a5b6beb9b2f9b1a5" class="referee-email">didier.theilliol&#64;univ-lorraine.fr</a>
+      </div>
+      <div class="referee-card">
+        <p class="referee-name">Dr. Mayank Shekhar Jha</p>
+        <p class="referee-role">Associate Professor</p>
+        <p class="referee-inst">Universit&eacute; de Lorraine</p>
+        <a href="/cdn-cgi/l/email-protection#79141800181712540a111c1211180b571311185f5a4f4d420c17100f5415160b0b1810171c571f0b" class="referee-email">mayank-shekhar.jha&#64;univ-lorraine.fr</a>
+      </div>
+ 
