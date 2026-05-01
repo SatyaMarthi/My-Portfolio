@@ -54,6 +54,11 @@
       color: var(--ink);
       text-decoration: none;
     }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
     .nav-links {
       display: flex;
       gap: 2.2rem;
@@ -69,6 +74,38 @@
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--accent); }
+
+    /* LANGUAGE TOGGLE */
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      background: var(--paper-warm);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 3px;
+      gap: 2px;
+    }
+    .lang-toggle button {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 0.3rem 0.75rem;
+      border: none;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: transparent;
+      color: var(--ink-faint);
+    }
+    .lang-toggle button.active {
+      background: var(--accent);
+      color: #fff;
+    }
+    .lang-toggle button:hover:not(.active) {
+      color: var(--accent);
+    }
+
     .hamburger {
       display: none;
       flex-direction: column;
@@ -108,10 +145,7 @@
       line-height: 1.05;
       margin-bottom: 0.3rem;
     }
-    .hero-name em {
-      font-style: italic;
-      color: var(--accent-mid);
-    }
+    .hero-name em { font-style: italic; color: var(--accent-mid); }
     .hero-title {
       font-family: var(--serif);
       font-size: 1.2rem;
@@ -180,17 +214,13 @@
       box-shadow: 0 16px 60px rgba(26, 75, 140, 0.2);
     }
     .hero-photo {
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       object-fit: cover;
       object-position: center top;
     }
 
     /* SECTIONS */
-    section {
-      padding: 6rem 10vw;
-      border-top: 1px solid var(--line);
-    }
+    section { padding: 6rem 10vw; border-top: 1px solid var(--line); }
     .section-header {
       display: flex;
       align-items: baseline;
@@ -224,10 +254,7 @@
       line-height: 1.85;
       margin-bottom: 1.2rem;
     }
-    .about-aside {
-      border-left: 3px solid var(--accent-light);
-      padding-left: 2rem;
-    }
+    .about-aside { border-left: 3px solid var(--accent-light); padding-left: 2rem; }
     .aside-label {
       font-size: 0.75rem;
       letter-spacing: 0.16em;
@@ -236,12 +263,7 @@
       margin-bottom: 0.8rem;
       font-weight: 600;
     }
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 2rem;
-    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
     .skill-tag {
       font-size: 0.90rem;
       padding: 0.35rem 0.85rem;
@@ -267,7 +289,7 @@
     .edu-detail { font-size: 0.93rem; color: var(--ink-soft); line-height: 1.7; }
     .edu-tag {
       display: inline-block;
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       background: var(--accent-light);
@@ -334,12 +356,7 @@
     }
     .talk-item:first-child { border-top: 1px solid var(--line); }
     .talk-item:hover { background: var(--paper-card); }
-    .talk-title {
-      font-size: 0.99rem;
-      color: var(--ink-soft);
-      line-height: 1.5;
-      flex: 1;
-    }
+    .talk-title { font-size: 0.99rem; color: var(--ink-soft); line-height: 1.5; flex: 1; }
     .talk-link {
       font-size: 0.99rem;
       color: var(--accent-mid);
@@ -349,20 +366,11 @@
       flex: 1;
     }
     .talk-link:hover { color: var(--accent); }
-    .talk-venue {
-      font-size: 0.91rem;
-      color: var(--ink);
-      white-space: nowrap;
-      font-style: italic;
-    }
+    .talk-venue { font-size: 0.91rem; color: var(--ink); white-space: nowrap; font-style: italic; }
     .talk-venue strong { font-style: italic; font-weight: 600; }
 
     /* TEACHING */
-    .teaching-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.2rem;
-    }
+    .teaching-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
     .teaching-card {
       padding: 1.8rem;
       background: var(--paper-card);
@@ -376,27 +384,23 @@
     .teaching-meta { font-size: 0.85rem; color: var(--ink-faint); letter-spacing: 0.06em; }
 
     /* LANGUAGES */
-    .lang-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 1rem;
-    }
+    .lang-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; max-width: 480px; }
     .lang-card {
       text-align: center;
-      padding: 1.5rem 1rem;
+      padding: 2rem 1rem;
       background: var(--paper-card);
       border: 1px solid var(--line);
       border-radius: 4px;
       transition: all 0.2s;
     }
     .lang-card:hover { border-color: var(--accent-light); box-shadow: 0 4px 16px rgba(26,75,140,0.08); }
-    .lang-name { font-family: var(--serif); font-size: 1.15rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .lang-name { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; margin-bottom: 0.4rem; }
     .lang-level { font-size: 0.79rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
     .lang-badge {
       display: inline-block;
-      margin-top: 0.5rem;
+      margin-top: 0.6rem;
       font-size: 0.75rem;
-      padding: 0.15rem 0.55rem;
+      padding: 0.2rem 0.65rem;
       background: var(--accent-light);
       color: var(--accent);
       border-radius: 3px;
@@ -447,20 +451,22 @@
       }
       .nav-links.open { display: flex; }
       .hamburger { display: flex; }
+      .nav-right { gap: 1rem; }
       #hero { grid-template-columns: 1fr; min-height: auto; }
       .hero-text { padding: 5rem 1.8rem 3rem; }
       .hero-visual { min-height: 360px; }
       #about .about-grid { grid-template-columns: 1fr; gap: 2rem; }
       .edu-item, .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
       .teaching-grid { grid-template-columns: 1fr 1fr; }
-      .lang-grid { grid-template-columns: repeat(3, 1fr); }
+      .lang-grid { grid-template-columns: 1fr 1fr; max-width: 100%; }
       .referee-grid { grid-template-columns: 1fr; }
       section { padding: 4rem 1.8rem; }
       footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+      .talk-item { flex-direction: column; gap: 0.4rem; }
+      .talk-venue { white-space: normal; }
     }
     @media (max-width: 560px) {
       .teaching-grid { grid-template-columns: 1fr; }
-      .lang-grid { grid-template-columns: 1fr 1fr; }
       .pub-item { flex-direction: column; gap: 0.8rem; }
       .hero-circle { width: 260px; height: 260px; }
     }
@@ -471,48 +477,66 @@
   <!-- NAV -->
   <nav>
     <a href="#hero" class="nav-logo">Satya Marthi</a>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#publications">Publications</a></li>
-      <li><a href="#talks">Talks</a></li>
-      <li><a href="#teaching">Teaching</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav-right">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about" data-en="About" data-fr="&#192; propos">About</a></li>
+        <li><a href="#education" data-en="Education" data-fr="Formation">Education</a></li>
+        <li><a href="#experience" data-en="Experience" data-fr="Exp&#233;rience">Experience</a></li>
+        <li><a href="#publications" data-en="Publications" data-fr="Publications">Publications</a></li>
+        <li><a href="#talks" data-en="Talks" data-fr="Conf&#233;rences">Talks</a></li>
+        <li><a href="#teaching" data-en="Teaching" data-fr="Enseignement">Teaching</a></li>
+        <li><a href="#contact" data-en="Contact" data-fr="Contact">Contact</a></li>
+      </ul>
+      <div class="lang-toggle">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-fr" onclick="setLang('fr')">FR</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </nav>
 
   <!-- HERO -->
   <section id="hero" style="border-top:none;padding:0;">
     <div class="hero-text">
-      <p class="hero-tag">PhD Candidate &middot; Control Systems &amp; AI</p>
+      <p class="hero-tag"
+         data-en="PhD Candidate &middot; Control Systems &amp; AI"
+         data-fr="Doctorant &middot; Syst&egrave;mes de Contr&ocirc;le &amp; IA">
+        PhD Candidate &middot; Control Systems &amp; AI
+      </p>
       <h1 class="hero-name">Satya<br><em>Marthi</em></h1>
-      <p class="hero-title">AI-Driven Control Systems Researcher</p>
-      <p class="hero-desc">Specializing in safe reinforcement learning, Hamilton&ndash;Jacobi reachability analysis, and prescribed-time stability of nonlinear systems &mdash; developing intelligent control algorithms for autonomous robotics and aerospace applications.</p>
+      <p class="hero-title"
+         data-en="AI-Driven Control Systems Researcher"
+         data-fr="Chercheur en Syst&egrave;mes de Contr&ocirc;le par IA">
+        AI-Driven Control Systems Researcher
+      </p>
+      <p class="hero-desc"
+         data-en="Specializing in safe reinforcement learning, Hamilton&ndash;Jacobi reachability analysis, and prescribed-time stability of nonlinear systems &mdash; developing intelligent control algorithms for autonomous robotics and aerospace applications."
+         data-fr="Sp&eacute;cialis&eacute; en apprentissage par renforcement s&ucirc;r, l&rsquo;analyse d&rsquo;atteignabilit&eacute; Hamilton&ndash;Jacobi et la stabilit&eacute; en temps prescrit des syst&egrave;mes non lin&eacute;aires &mdash; d&eacute;veloppant des algorithmes de contr&ocirc;le intelligents pour la robotique autonome et les applications a&eacute;rospatiales.">
+        Specializing in safe reinforcement learning, Hamilton&ndash;Jacobi reachability analysis, and prescribed-time stability of nonlinear systems &mdash; developing intelligent control algorithms for autonomous robotics and aerospace applications.
+      </p>
       <div class="hero-contacts">
-        <a href="/cdn-cgi/l/email-protection#abd8cadfd2ca85c6cad9dfc3c28d889d9f90dec5c2dd86c7c4d9d9cac2c5ce85cdd9" class="contact-chip">
+        <a href="mailto:satya.marthi@univ-lorraine.fr" class="contact-chip">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg>
-          satya.marthi&#64;univ-lorraine.fr
+          satya.marthi@univ-lorraine.fr
         </a>
         <a href="tel:+330622391035" class="contact-chip">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
           +33 06 22 39 10 35
         </a>
-        <a href="https://github.com" target="_blank" rel="noopener" class="contact-chip">
+        <a href="https://github.com/SatyaMarthi/" target="_blank" rel="noopener" class="contact-chip">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
           GitHub
         </a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-chip">
+        <a href="https://www.linkedin.com/in/marthi-chavan" target="_blank" rel="noopener" class="contact-chip">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
           LinkedIn
         </a>
       </div>
       <a href="CV_Satya.pdf" download="CV_Satya_Marthi.pdf" class="btn-download">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download CV
+        <span data-en="Download CV" data-fr="T&eacute;l&eacute;charger CV">Download CV</span>
       </a>
     </div>
     <div class="hero-visual">
@@ -526,16 +550,25 @@
   <section id="about">
     <div class="section-header">
       <span class="section-num">01</span>
-      <h2 class="section-title">About</h2>
+      <h2 class="section-title" data-en="About" data-fr="&#192; propos">About</h2>
     </div>
     <div class="about-grid">
       <div class="about-body">
-        <p>I am a PhD candidate at the Centre de Recherche en Automatique de Nancy (CRAN), Universit&eacute; de Lorraine, where my research sits at the intersection of control systems engineering and reinforcement learning.</p>
-        <p>My work focuses on developing safe, optimal control algorithms with Lyapunov-based guarantees for nonlinear autonomous systems &mdash; with applications in robotics and aerospace. I contribute to the ANR-funded SOS project, targeting intelligent drone fleets for forest fire-fighting missions.</p>
-        <p>Prior to my PhD, I studied at ISAE-SUPAERO in Toulouse and completed my undergraduate degree in Aerospace Engineering in India. I enjoy bridging rigorous mathematical control theory with practical learning-based methods.</p>
+        <p data-en="I am a PhD candidate at the Centre de Recherche en Automatique de Nancy (CRAN), Universit&eacute; de Lorraine, where my research sits at the intersection of control systems engineering and reinforcement learning."
+           data-fr="Je suis doctorant au Centre de Recherche en Automatique de Nancy (CRAN), Universit&eacute; de Lorraine, o&ugrave; mes recherches se situent &agrave; l&rsquo;intersection de l&rsquo;ing&eacute;nierie des syst&egrave;mes de contr&ocirc;le et de l&rsquo;apprentissage par renforcement.">
+          I am a PhD candidate at the Centre de Recherche en Automatique de Nancy (CRAN), Universit&eacute; de Lorraine, where my research sits at the intersection of control systems engineering and reinforcement learning.
+        </p>
+        <p data-en="My work focuses on developing safe, optimal control algorithms with Lyapunov-based guarantees for nonlinear autonomous systems &mdash; with applications in robotics and aerospace. I contribute to the ANR-funded SOS project, targeting intelligent drone fleets for forest fire-fighting missions."
+           data-fr="Mes travaux portent sur le d&eacute;veloppement d&rsquo;algorithmes de contr&ocirc;le s&ucirc;rs et optimaux avec des garanties bas&eacute;es sur Lyapunov pour les syst&egrave;mes autonomes non lin&eacute;aires &mdash; avec des applications en robotique et a&eacute;rospatiale. Je contribue au projet SOS financ&eacute; par l&rsquo;ANR, ciblant des flottes de drones intelligents pour des missions de lutte contre les feux de for&ecirc;t.">
+          My work focuses on developing safe, optimal control algorithms with Lyapunov-based guarantees for nonlinear autonomous systems &mdash; with applications in robotics and aerospace. I contribute to the ANR-funded SOS project, targeting intelligent drone fleets for forest fire-fighting missions.
+        </p>
+        <p data-en="Prior to my PhD, I studied at ISAE-SUPAERO in Toulouse and completed my undergraduate degree in Aerospace Engineering in India. I enjoy bridging rigorous mathematical control theory with practical learning-based methods."
+           data-fr="Avant mon doctorat, j&rsquo;ai &eacute;tudi&eacute; &agrave; l&rsquo;ISAE-SUPAERO &agrave; Toulouse et j&rsquo;ai obtenu mon dipl&ocirc;me de licence en ing&eacute;nierie a&eacute;rospatiale en Inde. J&rsquo;aime combiner la th&eacute;orie rigoureuse du contr&ocirc;le math&eacute;matique avec les m&eacute;thodes pratiques bas&eacute;es sur l&rsquo;apprentissage.">
+          Prior to my PhD, I studied at ISAE-SUPAERO in Toulouse and completed my undergraduate degree in Aerospace Engineering in India. I enjoy bridging rigorous mathematical control theory with practical learning-based methods.
+        </p>
       </div>
       <div class="about-aside">
-        <p class="aside-label">Technical Skills</p>
+        <p class="aside-label" data-en="Technical Skills" data-fr="Comp&eacute;tences Techniques">Technical Skills</p>
         <div class="skill-tags">
           <span class="skill-tag">MATLAB</span>
           <span class="skill-tag">Simulink</span>
@@ -550,7 +583,7 @@
           <span class="skill-tag">Control Barrier Functions</span>
           <span class="skill-tag">MPC</span>
         </div>
-        <p class="aside-label">Location</p>
+        <p class="aside-label" data-en="Location" data-fr="Localisation">Location</p>
         <p style="font-size:0.95rem;color:var(--ink-soft);">Vandoeuvre-l&egrave;s-Nancy, France</p>
       </div>
     </div>
@@ -560,33 +593,49 @@
   <section id="education">
     <div class="section-header">
       <span class="section-num">02</span>
-      <h2 class="section-title">Education</h2>
+      <h2 class="section-title" data-en="Education" data-fr="Formation">Education</h2>
     </div>
     <div class="edu-list">
       <div class="edu-item">
-        <div class="edu-year">2024 &mdash; Present</div>
+        <div class="edu-year" data-en="2024 &mdash; Present" data-fr="2024 &mdash; Pr&eacute;sent">2024 &mdash; Present</div>
         <div>
-          <p class="edu-degree">PhD, Control Systems Engineering</p>
+          <p class="edu-degree" data-en="PhD, Control Systems Engineering" data-fr="Doctorat, Ing&eacute;nierie des Syst&egrave;mes de Contr&ocirc;le">PhD, Control Systems Engineering</p>
           <p class="edu-inst">Universit&eacute; de Lorraine &middot; CRAN (Centre de Recherche en Automatique de Nancy), Nancy, France</p>
-          <p class="edu-detail">Combining control systems and reinforcement learning for optimal control via safe RL frameworks. Contributions to Hamilton&ndash;Jacobi reachability and prescribed-time stability analysis. Developing actor&ndash;critic and policy iteration algorithms for nonlinear autonomous systems.</p>
-          <p class="edu-detail" style="margin-top:0.5rem;">Funded by ANR (Agence Nationale de la Recherche) under the <em>SOS &mdash; Self-Organizing, Smart and Safe Heterogeneous Robots Fleet</em> project for forest fire-fighting missions.</p>
-          <span class="edu-tag">ANR Funded</span>
+          <p class="edu-detail"
+             data-en="Combining control systems and reinforcement learning for optimal control via safe RL frameworks. Contributions to Hamilton&ndash;Jacobi reachability and prescribed-time stability analysis. Developing actor&ndash;critic and policy iteration algorithms for nonlinear autonomous systems."
+             data-fr="Combinaison des syst&egrave;mes de contr&ocirc;le et de l&rsquo;apprentissage par renforcement pour le contr&ocirc;le optimal via des cadres d&rsquo;AR s&ucirc;r. Contributions &agrave; l&rsquo;analyse d&rsquo;atteignabilit&eacute; Hamilton&ndash;Jacobi et &agrave; la stabilit&eacute; en temps prescrit. D&eacute;veloppement d&rsquo;algorithmes acteur&ndash;critique et d&rsquo;it&eacute;ration de politique pour les syst&egrave;mes autonomes non lin&eacute;aires.">
+            Combining control systems and reinforcement learning for optimal control via safe RL frameworks. Contributions to Hamilton&ndash;Jacobi reachability and prescribed-time stability analysis. Developing actor&ndash;critic and policy iteration algorithms for nonlinear autonomous systems.
+          </p>
+          <p class="edu-detail" style="margin-top:0.5rem;"
+             data-en="Funded by ANR (Agence Nationale de la Recherche) under the <em>SOS &mdash; Self-Organizing, Smart and Safe Heterogeneous Robots Fleet</em> project for forest fire-fighting missions."
+             data-fr="Financ&eacute; par l&rsquo;ANR (Agence Nationale de la Recherche) dans le cadre du projet <em>SOS &mdash; Flotte de robots h&eacute;t&eacute;rog&egrave;nes auto-organis&eacute;s, intelligents et s&ucirc;rs</em> pour des missions de lutte contre les feux de for&ecirc;t.">
+            Funded by ANR (Agence Nationale de la Recherche) under the <em>SOS &mdash; Self-Organizing, Smart and Safe Heterogeneous Robots Fleet</em> project for forest fire-fighting missions.
+          </p>
+          <span class="edu-tag" data-en="ANR Funded" data-fr="Financ&eacute; ANR">ANR Funded</span>
         </div>
       </div>
       <div class="edu-item">
         <div class="edu-year">2022 &mdash; 2024</div>
         <div>
-          <p class="edu-degree">MSc, Aerospace Engineering</p>
-          <p class="edu-inst">ISAE-SUPAERO (Institut Sup&eacute;rieur de l'A&eacute;ronautique et de l'Espace), Toulouse, France</p>
-          <p class="edu-detail">Major in Aerospace Systems and Controls. Coursework included System Identification &amp; Estimation, Multivariable Systems, Model Predictive Control, Optimal Control, Robust Control, Nonlinear Control, Orbital Mechanics, and Mission Analysis.</p>
+          <p class="edu-degree" data-en="MSc, Aerospace Engineering" data-fr="Master, Ing&eacute;nierie A&eacute;rospatiale">MSc, Aerospace Engineering</p>
+          <p class="edu-inst">ISAE-SUPAERO (Institut Sup&eacute;rieur de l&rsquo;A&eacute;ronautique et de l&rsquo;Espace), Toulouse, France</p>
+          <p class="edu-detail"
+             data-en="Major in Aerospace Systems and Controls. Coursework included System Identification &amp; Estimation, Multivariable Systems, Model Predictive Control, Optimal Control, Robust Control, Nonlinear Control, Orbital Mechanics, and Mission Analysis."
+             data-fr="Sp&eacute;cialisation en Syst&egrave;mes et Contr&ocirc;les A&eacute;rospatiaux. Cours incluant Identification &amp; Estimation de Syst&egrave;mes, Syst&egrave;mes Multivariables, Contr&ocirc;le Pr&eacute;dictif, Contr&ocirc;le Optimal, Contr&ocirc;le Robuste, Contr&ocirc;le Non Lin&eacute;aire, M&eacute;canique Orbitale et Analyse de Mission.">
+            Major in Aerospace Systems and Controls. Coursework included System Identification &amp; Estimation, Multivariable Systems, Model Predictive Control, Optimal Control, Robust Control, Nonlinear Control, Orbital Mechanics, and Mission Analysis.
+          </p>
         </div>
       </div>
       <div class="edu-item">
         <div class="edu-year">2017 &mdash; 2021</div>
         <div>
-          <p class="edu-degree">BTech, Aerospace Engineering</p>
+          <p class="edu-degree" data-en="BTech, Aerospace Engineering" data-fr="Licence, Ing&eacute;nierie A&eacute;rospatiale">BTech, Aerospace Engineering</p>
           <p class="edu-inst">Amrita Vishwa Vidyapeetham, Coimbatore, India</p>
-          <p class="edu-detail">Coursework in Aeroelasticity, Control Theory, Aircraft Structures, Aircraft Propulsion, and Aerodynamics.</p>
+          <p class="edu-detail"
+             data-en="Coursework in Aeroelasticity, Control Theory, Aircraft Structures, Aircraft Propulsion, and Aerodynamics."
+             data-fr="Cours en A&eacute;ro&eacute;lasticit&eacute;, Th&eacute;orie du Contr&ocirc;le, Structures A&eacute;ronefs, Propulsion A&eacute;ronautique et A&eacute;rodynamique.">
+            Coursework in Aeroelasticity, Control Theory, Aircraft Structures, Aircraft Propulsion, and Aerodynamics.
+          </p>
         </div>
       </div>
     </div>
@@ -596,31 +645,51 @@
   <section id="experience">
     <div class="section-header">
       <span class="section-num">03</span>
-      <h2 class="section-title">Experience</h2>
+      <h2 class="section-title" data-en="Experience" data-fr="Exp&eacute;rience">Experience</h2>
     </div>
     <div class="exp-list">
       <div class="exp-item">
         <div class="exp-year">2024</div>
         <div>
-          <p class="exp-role">Research Intern</p>
+          <p class="exp-role" data-en="Research Intern" data-fr="Stagiaire de Recherche">Research Intern</p>
           <p class="exp-org">CRAN &mdash; Centre de Recherche en Automatique de Nancy, France</p>
-          <p class="exp-desc">Developed and evaluated a control approach combining safe reinforcement learning, optimal control, and adaptive control. Implemented control-barrier functions within a policy learning loop to achieve online-optimal control while guaranteeing system safety.</p>
+          <p class="exp-desc"
+             data-en="Developed and evaluated a control approach combining safe reinforcement learning, optimal control, and adaptive control. Implemented control-barrier functions within a policy learning loop to achieve online-optimal control while guaranteeing system safety."
+             data-fr="D&eacute;veloppement et &eacute;valuation d&rsquo;une approche de contr&ocirc;le combinant l&rsquo;apprentissage par renforcement s&ucirc;r, le contr&ocirc;le optimal et le contr&ocirc;le adaptatif. Impl&eacute;mentation de fonctions barri&egrave;res de contr&ocirc;le dans une boucle d&rsquo;apprentissage de politique pour obtenir un contr&ocirc;le optimal en ligne tout en garantissant la s&eacute;curit&eacute; du syst&egrave;me.">
+            Developed and evaluated a control approach combining safe reinforcement learning, optimal control, and adaptive control. Implemented control-barrier functions within a policy learning loop to achieve online-optimal control while guaranteeing system safety.
+          </p>
         </div>
       </div>
       <div class="exp-item">
         <div class="exp-year">2022 &mdash; 2023</div>
         <div>
-          <p class="exp-role">Research Project &mdash; Tethered Aircraft Systems</p>
+          <p class="exp-role"
+             data-en="Research Project &mdash; Tethered Aircraft Systems"
+             data-fr="Projet de Recherche &mdash; Syst&egrave;mes d&rsquo;A&eacute;ronefs Attach&eacute;s">
+            Research Project &mdash; Tethered Aircraft Systems
+          </p>
           <p class="exp-org">ISAE-SUPAERO, Toulouse, France</p>
-          <p class="exp-desc">Modelled a pair of tethered aircraft to develop control laws. Constructed handling quality and stability models, evaluated the impact of design parameters on stability, and determined a control law model for safe cooperative flight.</p>
+          <p class="exp-desc"
+             data-en="Modelled a pair of tethered aircraft to develop control laws. Constructed handling quality and stability models, evaluated the impact of design parameters on stability, and determined a control law model for safe cooperative flight."
+             data-fr="Mod&eacute;lisation d&rsquo;une paire d&rsquo;a&eacute;ronefs attach&eacute;s pour d&eacute;velopper des lois de contr&ocirc;le. Construction de mod&egrave;les de qualit&eacute; de vol et de stabilit&eacute;, &eacute;valuation de l&rsquo;impact des param&egrave;tres de conception sur la stabilit&eacute;, et d&eacute;termination d&rsquo;un mod&egrave;le de loi de contr&ocirc;le pour un vol coop&eacute;ratif s&ucirc;r.">
+            Modelled a pair of tethered aircraft to develop control laws. Constructed handling quality and stability models, evaluated the impact of design parameters on stability, and determined a control law model for safe cooperative flight.
+          </p>
         </div>
       </div>
       <div class="exp-item">
         <div class="exp-year">2021 &mdash; 2022</div>
         <div>
-          <p class="exp-role">Design &amp; Structures Intern</p>
+          <p class="exp-role"
+             data-en="Design &amp; Structures Intern"
+             data-fr="Stagiaire Conception &amp; Structures">
+            Design &amp; Structures Intern
+          </p>
           <p class="exp-org">STAR (Space Technology and Aeronautical Rocketry), India</p>
-          <p class="exp-desc">Designed a static test pad using Fusion 360 with focus on ergonomics, aesthetics, and ease of assembly/disassembly. Performed static stress analysis to ensure structural safety.</p>
+          <p class="exp-desc"
+             data-en="Designed a static test pad using Fusion 360 with focus on ergonomics, aesthetics, and ease of assembly/disassembly. Performed static stress analysis to ensure structural safety."
+             data-fr="Conception d&rsquo;un banc d&rsquo;essai statique avec Fusion 360 en mettant l&rsquo;accent sur l&rsquo;ergonomie, l&rsquo;esth&eacute;tique et la facilit&eacute; de montage/d&eacute;montage. Analyse statique des contraintes pour garantir la s&eacute;curit&eacute; structurelle.">
+            Designed a static test pad using Fusion 360 with focus on ergonomics, aesthetics, and ease of assembly/disassembly. Performed static stress analysis to ensure structural safety.
+          </p>
         </div>
       </div>
     </div>
@@ -630,7 +699,7 @@
   <section id="publications">
     <div class="section-header">
       <span class="section-num">04</span>
-      <h2 class="section-title">Publications</h2>
+      <h2 class="section-title" data-en="Publications" data-fr="Publications">Publications</h2>
     </div>
     <div class="pub-list">
       <div class="pub-item">
@@ -644,7 +713,7 @@
         <span class="pub-year-badge">2026</span>
         <div>
           <p class="pub-title">Lipschitz-Aware Exploration for Safety in Reinforcement Learning</p>
-          <p class="pub-venue">Jha MS, Kyriakos G V., Marthi S, Theilliol D. &middot; IEEE American Control Conference (ACC 2026), pp. 4817&ndash;4824</p>
+          <p class="pub-venue">Jha MS, Kyriakos G V., Marthi S, Theilliol D. &middot; IEEE American Control Conference (ACC 2026) &mdash; <em data-en="Accepted, proceedings pending" data-fr="Accept&eacute;, actes en attente">Accepted, proceedings pending</em></p>
         </div>
       </div>
     </div>
@@ -654,7 +723,7 @@
   <section id="talks">
     <div class="section-header">
       <span class="section-num">05</span>
-      <h2 class="section-title">Academic Talks</h2>
+      <h2 class="section-title" data-en="Academic Talks" data-fr="Conf&eacute;rences Acad&eacute;miques">Academic Talks</h2>
     </div>
     <div class="talks-list">
       <div class="talk-item">
@@ -676,19 +745,19 @@
   <section id="teaching">
     <div class="section-header">
       <span class="section-num">06</span>
-      <h2 class="section-title">Teaching</h2>
+      <h2 class="section-title" data-en="Teaching" data-fr="Enseignement">Teaching</h2>
     </div>
     <div class="teaching-grid">
       <div class="teaching-card">
-        <p class="teaching-course">Deep Learning</p>
+        <p class="teaching-course" data-en="Deep Learning" data-fr="Apprentissage Profond">Deep Learning</p>
         <p class="teaching-meta">Polytech Nancy &middot; 2025&ndash;2026</p>
       </div>
       <div class="teaching-card">
-        <p class="teaching-course">Reinforcement Learning</p>
+        <p class="teaching-course" data-en="Reinforcement Learning" data-fr="Apprentissage par Renforcement">Reinforcement Learning</p>
         <p class="teaching-meta">Polytech Nancy &middot; 2025&ndash;2026</p>
       </div>
       <div class="teaching-card">
-        <p class="teaching-course">Automatic Control</p>
+        <p class="teaching-course" data-en="Automatic Control" data-fr="Automatique">Automatic Control</p>
         <p class="teaching-meta">Polytech Nancy &middot; 2025</p>
       </div>
     </div>
@@ -698,33 +767,18 @@
   <section id="languages">
     <div class="section-header">
       <span class="section-num">07</span>
-      <h2 class="section-title">Languages</h2>
+      <h2 class="section-title" data-en="Languages" data-fr="Langues">Languages</h2>
     </div>
     <div class="lang-grid">
       <div class="lang-card">
-        <p class="lang-name">French</p>
-        <p class="lang-level">Intermediate</p>
+        <p class="lang-name" data-en="French" data-fr="Fran&ccedil;ais">French</p>
+        <p class="lang-level" data-en="Intermediate" data-fr="Interm&eacute;diaire">Intermediate</p>
         <span class="lang-badge">B1</span>
       </div>
       <div class="lang-card">
-        <p class="lang-name">English</p>
-        <p class="lang-level">Fluent</p>
+        <p class="lang-name" data-en="English" data-fr="Anglais">English</p>
+        <p class="lang-level" data-en="Fluent" data-fr="Courant">Fluent</p>
         <span class="lang-badge">C1</span>
-      </div>
-      <div class="lang-card">
-        <p class="lang-name">Telugu</p>
-        <p class="lang-level">Native</p>
-        <span class="lang-badge">Native</span>
-      </div>
-      <div class="lang-card">
-        <p class="lang-name">Tamil</p>
-        <p class="lang-level">Fluent</p>
-        <span class="lang-badge">Fluent</span>
-      </div>
-      <div class="lang-card">
-        <p class="lang-name">Hindi</p>
-        <p class="lang-level">Fluent</p>
-        <span class="lang-badge">Fluent</span>
       </div>
     </div>
   </section>
@@ -733,19 +787,68 @@
   <section id="contact">
     <div class="section-header">
       <span class="section-num">08</span>
-      <h2 class="section-title">Referees</h2>
+      <h2 class="section-title" data-en="Referees" data-fr="R&eacute;f&eacute;rents">Referees</h2>
     </div>
     <div class="referee-grid">
       <div class="referee-card">
         <p class="referee-name">Dr. Didier Theilliol</p>
-        <p class="referee-role">Professor</p>
+        <p class="referee-role" data-en="Professor" data-fr="Professeur">Professor</p>
         <p class="referee-inst">Universit&eacute; de Lorraine</p>
-        <a href="/cdn-cgi/l/email-protection#d7b3beb3beb2a5f9a3bfb2bebbbbbeb8bbf1f4e1e3eca2b9bea1fabbb8a5a5b6beb9b2f9b1a5" class="referee-email">didier.theilliol&#64;univ-lorraine.fr</a>
+        <a href="mailto:didier.theilliol@univ-lorraine.fr" class="referee-email">didier.theilliol@univ-lorraine.fr</a>
       </div>
       <div class="referee-card">
         <p class="referee-name">Dr. Mayank Shekhar Jha</p>
-        <p class="referee-role">Associate Professor</p>
+        <p class="referee-role" data-en="Associate Professor" data-fr="Ma&icirc;tre de Conf&eacute;rences">Associate Professor</p>
         <p class="referee-inst">Universit&eacute; de Lorraine</p>
-        <a href="/cdn-cgi/l/email-protection#79141800181712540a111c1211180b571311185f5a4f4d420c17100f5415160b0b1810171c571f0b" class="referee-email">mayank-shekhar.jha&#64;univ-lorraine.fr</a>
+        <a href="mailto:mayank-shekhar.jha@univ-lorraine.fr" class="referee-email">mayank-shekhar.jha@univ-lorraine.fr</a>
       </div>
- 
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="footer-name">Satya Marthi</p>
+    <p class="footer-note"
+       data-en="PhD Candidate &middot; Control Systems &amp; Reinforcement Learning &middot; Universit&eacute; de Lorraine"
+       data-fr="Doctorant &middot; Syst&egrave;mes de Contr&ocirc;le &amp; Apprentissage par Renforcement &middot; Universit&eacute; de Lorraine">
+      PhD Candidate &middot; Control Systems &amp; Reinforcement Learning &middot; Universit&eacute; de Lorraine
+    </p>
+  </footer>
+
+  <script>
+    // Hamburger
+    var btn = document.getElementById('hamburger');
+    var navLinks = document.getElementById('nav-links');
+    btn.addEventListener('click', function() { navLinks.classList.toggle('open'); });
+    var navAs = navLinks.querySelectorAll('a');
+    for (var i = 0; i < navAs.length; i++) {
+      navAs[i].addEventListener('click', function() { navLinks.classList.remove('open'); });
+    }
+
+    // Language toggle
+    var currentLang = 'en';
+
+    function setLang(lang) {
+      currentLang = lang;
+
+      // Toggle button states
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+
+      // Update html lang attribute
+      document.documentElement.lang = lang;
+
+      // Update all elements with data-en / data-fr
+      var elements = document.querySelectorAll('[data-en]');
+      for (var i = 0; i < elements.length; i++) {
+        var el = elements[i];
+        var text = el.getAttribute('data-' + lang);
+        if (text !== null) {
+          el.innerHTML = text;
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
